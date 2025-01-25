@@ -72,7 +72,7 @@ tags: [Blogging, Jekyll]
 
 
 ## Deply Error
-<br>로컬에서 실행은 되었지만, 깃허브에 deply시 오류가 났습니다.
+<br>로컬에서 실행은 되었지만, 깃허브에 deply시 오류가 났습니다. 깃허브 프로젝트의 Action탭에서 확인해보니 아래와 같은 문제였습니다.
 
         Jekyll 4.3.3   Please append `--trace` to the `build` command for any additional information or backtrace.
         Can't find stylesheet to import.
