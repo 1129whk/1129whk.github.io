@@ -11,6 +11,11 @@ tags: [Blogging, Jekyll]
 <br><br>3. Deply 안 되는 오류
 <hr>
 
+## Solution
+공식문서를 참고했고, 공식문서에서는 도커에서 하라고 하는데, 저는 도커에서 폴더 안의 파일을 만들어서 가지고 왔습니다.<br>
+블로그 생성 자체가 오류도 많이 나고 어려운 나머지, 그냥 티스토리로 다시 갈까 하다가, 도전해본 결과, 오류를 모두 해결했습니다.
+<hr>
+
 ### Reference
 <https://jekyllrb.com/docs/installation/macos/>
 <hr>
@@ -33,13 +38,15 @@ tags: [Blogging, Jekyll]
 <br>기본 ruby 버전을 3.3.6로 선택
 
 <br>```ruby -v```
-<br>ruby의 버전을 확인했더니, 아직 ‘ruby 2.6.10’ 버전이라고 나온다. 아래와 같이 변경사항을 적용시키면 해결된다.
+<br>ruby의 버전을 확인했더니, 아직 ‘ruby 2.6.10’ 버전이라고 나온다. 아래와 같이 사항을 한줄씩 차례대로 적용시키면 해결된다.
 
-<br>```vi ~/.zshrc```
-<br>```export PATH="HOME/.rbenv/bin:$PATH"```
-<br>```eval "$(rbenv init -)"```
-<br>```source ~/.zshrc```
-<br>: 변경사항 적용. 'ruby -v'로 확인해보니, ‘ruby 3.3.6’로 변경사항이 적용되었다.
+
+    vi ~/.zshrc
+    export PATH="HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+    source ~/.zshrc
+
+변경사항 적용. 'ruby -v'로 확인해보니, ‘ruby 3.3.6’로 변경사항이 적용되었다.
 <hr>
 
 ## Install Jekyll
@@ -53,11 +60,11 @@ tags: [Blogging, Jekyll]
 <br>다른 블로그들을 참고해보니, 'bash tools/init.sh'명령어도 실행되지 않아서, 이 2단계를 수동으로 처리하는 분들도 있는데, 결국 dist폴더를 만든 걸 가지고 왔고,
 <br>'bash tools/init.sh'명령어는 뒤에 실행하니 실행되었다.
 
-<br>```bundle```
-<br>번들 설치
+```bundle```
+번들 설치
 
 <br>```bash tools/init.sh```
-: 초기화. 더 앞순서에서 시도하니 실행이 되지 않았다. 이 과정을 통해 _posts폴더에 있었던 예시 파일이라든지 기타 필요없는 파일들은 정리하게 된다.
+<br>초기화. 더 앞순서에서 시도하니 실행이 되지 않았다. 이 과정을 통해 _posts폴더에 있었던 예시 파일이라든지 기타 필요없는 파일들은 정리하게 된다.
 
 <br>```bundle exec jekyll serve```
 <br>: 로컬에서 실행시킨다. 'http://127.0.0.1:4000/'로 확인.
@@ -65,13 +72,14 @@ tags: [Blogging, Jekyll]
 
 
 ## Deply Error
-<br>로컬에서 실행은 되었지만, deply시 오류가 났습니다.
-<br><br>```Jekyll 4.3.3   Please append `--trace` to the `build` command for any additional information or backtrace.
-Can't find stylesheet to import.```
-<br>/assets/css/jekyll-theme-chirpy.scss 오류가 생겼는데, 아래와 같이 .github폴더의 workflows폴더의 'pages-deploy.yml'파일에
-<br>- name: Build site 위에 추가하니 해결됨.
+<br>로컬에서 실행은 되었지만, 깃허브에 deply시 오류가 났습니다.
 
-<br>```- name: npm build
-        run: npm install && npm run build```
-<img width="409" alt="Image" src="https://github.com/user-attachments/assets/fecb152a-24e1-4992-8724-9741cbf0a732" />
+        Jekyll 4.3.3   Please append `--trace` to the `build` command for any additional information or backtrace.
+        Can't find stylesheet to import.
+        /assets/css/jekyll-theme-chirpy.scss
+
+요약하자면 위와 같은 오류가 생겼는데, 아래와 같이 .github폴더 안에 있는 workflows폴더의 'pages-deploy.yml'파일에 아래의 코드를 추가하니 해결됨.
+
+    - name: npm build
+      run: npm install && npm run build
 
