@@ -45,10 +45,10 @@ jobs:
           ruby-version: 3.3
           bundler-cache: true
 
-      #추가
+      #추가 시작
       - name: npm build
         run: npm install && npm run build
-      #--------------------------------------------------------          
+      #추가 끝       
 
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
