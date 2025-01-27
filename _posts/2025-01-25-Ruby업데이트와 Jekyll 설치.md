@@ -1,7 +1,7 @@
 ---
-title: "Ruby업데이트와 Jekyll 설치"
+title: "Chirpy 블로그-Ruby업데이트와 Jekyll 설치"
 date: 2025-01-25 20:36:00 +0800
-categories: [Blogging]
+categories: [Blogging, Jekyll]
 tags: [Blogging, Jekyll]
 ---
 ## Problem
