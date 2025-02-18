@@ -15,6 +15,8 @@ image:
 
 해당 포트를 이미 사용하고 있어서 실행 불가하다는 오류였습니다.
 
+Mac도 사용하게 되어서 Windows와 Mac 모두 보겠습니다.
+
 <br>
 <img src="/assets/img/posts/2025-02-01-Several ports (8005, 8080) required by Tomcat v9.0 Server at localhost are already in use/port.png" alt="Error 사진">
 <hr>
@@ -31,7 +33,7 @@ Solution2은 목록을 보여주기 때문에 해당하는 포트의 pid를 찾�
 <br>
 
 
-### Solution1
+### Solution1 (Windows)
 
 <br>
 
@@ -42,7 +44,7 @@ Solution2은 목록을 보여주기 때문에 해당하는 포트의 pid를 찾�
 <br>
 
 
-### Solution2
+### Solution2 (Windows)
 
 <br>
 
@@ -50,9 +52,25 @@ Solution2은 목록을 보여주기 때문에 해당하는 포트의 pid를 찾�
     netstat -a -n -o -p tcp
     taskkill /f /pid (pid of port)
 
-<hr>
 <br>
 
+
+### Solution3 (Mac)
+
+<br>
+
+    lsof -i :8080
+
+  : 이후에 포트번호 적기. PID 확인 후 아래의 코드 쓰기
+
+<br>
+
+    kill 8060
+
+  8060은 확인한 PID
+
+<hr>
+<br>
 
 ## Reference
 
