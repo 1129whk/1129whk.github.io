@@ -36,7 +36,7 @@ social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: WHK
-  email: example@domain.com # change to your email address
+  email: 1129whk@gmail.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
     - "https://github.com/1129whk" # change to your GitHub homepage
@@ -96,7 +96,7 @@ theme_mode: # [light | dark]
 # will be added to all media resources (site avatar, posts' images, audio and video files) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-cdn: 
+cdn:
 
 # the avatar on sidebar, support local or CORS resources
 avatar: /assets/img/avatar/avatar.png
